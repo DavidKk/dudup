@@ -1,6 +1,6 @@
 {
   "name": "dudup-weixin",
-  "version": "1.0.1-alpha.0",
+  "version": "1.0.1-alpha.1",
   "license": "MIT",
   "main": "libs/index.js",
   "types": "libs/index.d.ts",
@@ -15,7 +15,7 @@
     "start": "npm run develop"
   },
   "dependencies": {
-    "dudup": "^1.0.1-alpha.0"
+    "dudup": "^1.0.1-alpha.1"
   },
   "devDependencies": {
     "@types/node": "^13.13.5"
