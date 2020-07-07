@@ -90,7 +90,7 @@ export default class ImageUploader {
    * 获取文件类型
    * @param filename 文件路径
    */
-  protected mimeType(filename: string, defaultMimeType: string = ''): string {
+  public mimeType(filename: string, defaultMimeType: string = ''): string {
     const extname = this.extname(filename)
     return ImageUploader.MimeTypes[extname] || defaultMimeType
   }
@@ -99,7 +99,7 @@ export default class ImageUploader {
    * 随机命名
    * @param filename 默认名称
    */
-  protected async giveFileAName(filename?: string): Promise<string> {
+  public async giveFileAName(filename?: string): Promise<string> {
     return new Promise((resolve, reject) => {
       wx.getFileInfo({
         filePath: filename,
@@ -117,7 +117,7 @@ export default class ImageUploader {
    * 获取文件后缀
    * @param filename 文件名
    */
-  protected extname(filename: string): string {
+  public extname(filename: string): string {
     return filename.split('.').pop()
   }
 }

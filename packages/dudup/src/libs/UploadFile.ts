@@ -204,7 +204,7 @@ export default abstract class UploadFile implements Types.FileInterface {
    * 判断是否为一个路径
    * @param filepath 路径
    */
-  protected isPath(filepath: string): boolean {
+  public isPath(filepath: string): boolean {
     return /^(\w:\\\\|\/)/.test(filepath)
   }
 
