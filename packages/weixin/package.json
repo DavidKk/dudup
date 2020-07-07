@@ -1,0 +1,23 @@
+{
+  "name": "dudup-weixin",
+  "version": "1.0.0",
+  "license": "MIT",
+  "main": "libs/index.js",
+  "types": "libs/index.d.ts",
+  "sideEffects": false,
+  "scripts": {
+    "prepublishOnly": "npm run product",
+    "unitest": "ts-mocha --paths -p ./test/tsconfig.json test/**/*.spec.ts",
+    "unitest:watch": "npm run unitest -- --watch --watch-files \"src/**/*.ts,test/**/*.spec.ts\" -R min",
+    "test": "npm run unitest",
+    "develop": "rimraf ./libs && tsc --project ./src --outDir ./libs --declaration --watch",
+    "product": "rimraf ./libs && tsc --project ./src --outDir ./libs --declaration",
+    "start": "npm run develop"
+  },
+  "dependencies": {
+    "dudup": "^1.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^13.13.5"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "name": "dudup-node",
+  "version": "1.0.0",
+  "license": "MIT",
+  "main": "libs/index.js",
+  "types": "libs/index.d.ts",
+  "sideEffects": false,
+  "scripts": {
+    "prepublishOnly": "npm run product",
+    "unitest": "ts-mocha --paths -p ./test/tsconfig.json test/**/*.spec.ts",
+    "unitest:watch": "npm run unitest -- --watch --watch-files \"src/**/*.ts,test/**/*.spec.ts\" -R min",
+    "test": "npm run unitest",
+    "develop": "rimraf ./libs && tsc --project ./src --outDir ./libs --declaration --watch",
+    "product": "rimraf ./libs && tsc --project ./src --outDir ./libs --declaration",
+    "start": "npm run develop"
+  },
+  "dependencies": {
+    "dudup": "^1.0.0",
+    "fs-extra": "^9.0.0",
+    "lodash": "^4.17.15",
+    "mime-types": "^2.1.27",
+    "progress": "^2.0.3"
+  },
+  "devDependencies": {
+    "@types/fs-extra": "^8.1.0",
+    "@types/lodash": "^4.14.132",
+    "@types/mime-types": "^2.1.0",
+    "@types/node": "^13.13.5"
+  },
+  "gitHead": "6218e48e05b97c8647a914c56ff321241d0526d2"
+}

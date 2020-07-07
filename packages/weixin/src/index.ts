@@ -1,0 +1,5 @@
+export * as Dudup from 'dudup'
+export { default as WeixinRequestor } from './libs/Requestor'
+export { default as WeixinUploadFile } from './libs/UploadFile'
+export { default as Storage } from './libs/Storage'
+export * as Types from './types'
