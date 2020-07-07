@@ -144,7 +144,7 @@ export default class WeixinUploadFile extends UploadFile implements BaseTypes.Fi
     return true
   }
 
-  public basename(file: string): string {
+  protected basename(file: string): string {
     return file.split('/').pop()
   }
 
@@ -152,7 +152,7 @@ export default class WeixinUploadFile extends UploadFile implements BaseTypes.Fi
    * 判断是否为一个路径
    * @param filepath 路径
    */
-  public isPath(filepath: string): boolean {
+  protected isPath(filepath: string): boolean {
     return /^(\w:\\\\|\/|https?:\/\/)/.test(filepath)
   }
 }

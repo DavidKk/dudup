@@ -2,8 +2,8 @@ import { Readable, ReadableOptions } from 'stream'
 import * as Types from '../types'
 
 export default class BufferReadStream extends Readable {
-  public content: Buffer | ArrayBuffer
-  public offset: number
+  protected content: Buffer | ArrayBuffer
+  protected offset: number
 
   public get size(): number {
     return this.content.byteLength

@@ -8,15 +8,15 @@ import * as Types from '../types'
  */
 export default class RequestorProgress {
   /** 定时器 */
-  public timer: Timer
+  protected timer: Timer
   /** spy 集合 */
-  public spies: Spy<Types.RequestProgressHandler>[]
+  protected spies: Spy<Types.RequestProgressHandler>[]
   /** 状态 */
-  public state: { [key: string]: any }
+  protected state: { [key: string]: any }
   /** 各分片的已上传大小 */
-  public loaded: number[]
+  protected loaded: number[]
   /** 各分片的总上传大小 */
-  public total: number[]
+  protected total: number[]
 
   constructor() {
     this.timer = new Timer()

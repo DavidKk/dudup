@@ -2,7 +2,7 @@ import { Requestor, soapReponseXMLToJSON, Types as BaseTypes } from 'dudup'
 import * as Types from '../types'
 
 export default class BrowserRequestor extends Requestor implements BaseTypes.Requestor {
-  public xhr: XMLHttpRequest
+  protected xhr: XMLHttpRequest
 
   constructor(method = 'POST', url = '', data?: Types.RequestData, options?: BaseTypes.RequestOptions) {
     super(method, url, data, options)
