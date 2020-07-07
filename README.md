@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/DavidKk/dudup.svg?branch=master)](https://travis-ci.org/DavidKk/dudup)
+
 # 上传基类
 
 主要用于继承与扩展
