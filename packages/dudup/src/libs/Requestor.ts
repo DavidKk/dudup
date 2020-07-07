@@ -19,8 +19,8 @@ export default abstract class Requestor implements Types.Requestor {
   static readonly DefaultSettings: Types.RequestOptions = RequestorSettings
   static readonly OptionalProps: Array<keyof Types.RequestOptions> = ['withCredentials', 'method', 'params', 'headers', 'uploadProgress', 'dataType', 'responseType', 'killToken']
 
-  protected _method: string
-  protected _body: Types.RequestData
+  public _method: string
+  public _body: Types.RequestData
 
   public uri: URI = null
   public headers: Types.RequestHeaders = {}
