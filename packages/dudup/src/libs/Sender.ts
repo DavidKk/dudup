@@ -216,7 +216,7 @@ export default class Sender {
    * @description
    * 因为上传容易覆盖文件名, 因此可以通过内容(contenthash)作为文件名称.
    */
-  public giveFileName(file: UploadFile, options?: Types.SenderGiveFileNameOptions): Promise<string>
+  public async giveFileName(file: UploadFile, options?: Types.SenderGiveFileNameOptions): Promise<string>
   /**
    * 给文件取名
    * @param filename 优先文件名
@@ -225,11 +225,11 @@ export default class Sender {
    * 若果 filename 合法则优先使用 filename, 否则自动生成一个哈希文件名.
    * 因为上传容易覆盖文件名, 因此可以通过内容(contenthash)作为文件名称.
    */
-  public giveFileName(filename: string, file: UploadFile, options?: Types.SenderGiveFileNameOptions): Promise<string>
+  public async giveFileName(filename: string, file: UploadFile, options?: Types.SenderGiveFileNameOptions): Promise<string>
   public async giveFileName<T extends UploadFile | string, F extends UploadFile | Types.SenderGiveFileNameOptions>(
     ...args: [T?, F?, Types.SenderGiveFileNameOptions?]
   ): Promise<string> {
-    if (args[0] instanceof UploadFile) {
+    if (args[0] instanceof this.FileClass) {
       const file = args[0] as UploadFile
       const options = (args[1] || {}) as Types.SenderGiveFileNameOptions
 
@@ -246,15 +246,25 @@ export default class Sender {
       return file.hash + file.extname
     }
 
-    const filename = args[0] as string
-    const file = args[1] as UploadFile
-    const options = (args[2] || {}) as Types.SenderGiveFileNameOptions
-
-    if (typeof filename === 'string' && filename.length > 0) {
-      return filename
+    if (typeof args[0] === 'string') {
+      const filename = args[0] as string
+      if (filename.length > 0) {
+        return filename
+      }
     }
 
-    return this.giveFileName(file, options)
+    /**
+     * 这里要注意下 args[0] 为非字符串的情况
+     * 这里判断 args[1] 是否为文件类来过滤这种情况
+     */
+
+    if (args[1] instanceof this.FileClass) {
+      const file = args[1] as UploadFile
+      const options = (args[2] || {}) as Types.SenderGiveFileNameOptions
+      return this.giveFileName(file, options)
+    }
+
+    return sha256(Date.now() + guid())
   }
 
   /**

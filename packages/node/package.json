@@ -25,7 +25,9 @@
     "@types/fs-extra": "^8.1.0",
     "@types/lodash": "^4.14.132",
     "@types/mime-types": "^2.1.0",
-    "@types/node": "^13.13.5"
+    "@types/node": "^13.13.5",
+    "rimraf": "^3.0.2",
+    "typescript": "^3.9.7"
   },
   "gitHead": "6218e48e05b97c8647a914c56ff321241d0526d2"
 }

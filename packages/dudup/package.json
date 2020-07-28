@@ -21,7 +21,9 @@
   "devDependencies": {
     "@types/lodash": "^4.14.156",
     "@types/node": "^13.13.5",
-    "@types/url-parse": "^1.4.3"
+    "@types/url-parse": "^1.4.3",
+    "rimraf": "^3.0.2",
+    "typescript": "^3.9.7"
   },
   "gitHead": "6218e48e05b97c8647a914c56ff321241d0526d2"
 }
